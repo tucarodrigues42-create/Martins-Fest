@@ -41,3 +41,77 @@ html{scroll-padding-top:76px}body{overflow-x:clip}
 .btn:focus-visible,.gallery-item:focus-visible,.menu-toggle:focus-visible,.nav a:focus-visible,a:focus-visible,.lightbox button:focus-visible{outline:3px solid #c8d7c4;outline-offset:5px}
 @media(max-width:760px){.hero-image{transform:scale(1.06)}.hero-content{transform:none;will-change:auto}.depth-ring{opacity:.35}.ring-a{width:440px;right:-300px;top:22%}.ring-b{display:none}.depth-coordinate,.hero-depth-label{display:none}.feature-photo .scene-layer,.scene:hover .scene-layer{transform:translate3d(0,var(--parallax-px,0px),0) scale(1.06)}.gallery-item{transform:none!important}.gallery-item:hover{box-shadow:none}.header-logo{height:38px;width:38px}}
 @media(prefers-reduced-motion:reduce){.hero-image,.hero-content,.feature-photo .scene-layer,.scene:hover .scene-layer,.location-photo img,.gallery-item,.gallery-item img{transform:none!important;will-change:auto!important}.js-motion [data-reveal]{opacity:1!important;transform:none!important}.depth-ring{display:none}.scroll-progress{display:none}}
+
+/* Revisão visual e responsiva — 2026-10 */
+:root{--focus:#dfd6ad}
+*,*::before,*::after{min-width:0}
+body{overflow-x:hidden}
+a,button{-webkit-tap-highlight-color:transparent}
+.site-header{gap:20px}
+.brand{flex-shrink:0}
+.brand-text{white-space:nowrap}
+.nav{align-items:center;flex-wrap:nowrap}
+.nav-cta{white-space:nowrap;flex-shrink:0}
+/* Fotografias originais são verticais: composição dividida em desktop evita crop excessivo. */
+@media(min-width:761px){
+  .hero{background:#14211f}
+  .hero-image{background:linear-gradient(90deg,#10201f 0%,#172a28 47%,#1a2d2a 100%);transform:none!important;transition:none!important;animation:none}
+  .hero-image::before{content:"";position:absolute;top:0;right:0;height:100%;width:48%;background:url('/assets/img_9468.webp') center 48% /cover no-repeat;box-shadow:inset 90px 0 105px -65px #14211f}
+  .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 36%,#14211f36 51%,transparent 75%),linear-gradient(0deg,#08161485,transparent 33%)}
+  .hero-content{max-width:min(680px,57vw);left:clamp(36px,7vw,120px);top:50%;transform:translateY(-35%) translateZ(0)!important}
+  .hero h1{font-size:clamp(58px,6.15vw,104px);letter-spacing:-.067em}
+  .hero-content>p{max-width:480px}
+  .depth-ring{opacity:.33}
+}
+@media(min-width:761px) and (max-width:1080px){
+  .nav{gap:13px;font-size:11px}
+  .nav-cta{font-size:11px;padding:13px 12px}
+  .brand-text{font-size:12px}
+  .hero-image::before{width:47%}
+  .hero h1{font-size:clamp(55px,6vw,75px)}
+}
+@media(max-width:760px){
+  .site-header{isolation:isolate}
+  .nav{z-index:10;box-shadow:0 20px 35px #0004}
+  .nav.open{max-height:calc(100dvh - 75px);overflow:auto}
+  .menu-toggle{min-height:44px;min-width:44px;align-items:center;justify-items:center;z-index:11}
+  .hero{height:auto;min-height:min(780px,100svh);max-height:none;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 24px 86px}
+  .hero-image{background-image:linear-gradient(0deg,#071b1ae8,#08191638 88%),url('/assets/img_9468.webp');background-size:cover;background-position:center,center 42%;transform:none!important;transition:none!important}
+  .hero-content{position:relative;inset:auto;left:auto;right:auto;bottom:auto;top:auto;max-width:100%;z-index:4;transform:none!important}
+  .hero h1{font-size:clamp(42px,10.3vw,66px);line-height:1.08;margin:18px 0 18px;overflow-wrap:normal}
+  .hero-eyebrow{font-size:9px;letter-spacing:.15em}
+  .hero-content>p{max-width:540px;font-size:14px;line-height:1.65}
+  .hero-actions{margin-top:23px;gap:20px}
+  .hero-bottom{bottom:27px;left:24px;right:24px}
+  .hero-depth{display:none}
+  .feature-photo{min-height:440px;height:min(65vh,650px)}
+  .feature-copy h2{font-size:clamp(38px,9.5vw,55px)}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item:not(.gallery-wide){height:clamp(200px,60vw,320px)}
+  .gallery-wide{height:clamp(350px,97vw,550px)}
+  .gallery-item span{letter-spacing:.05em}
+  .footer-links a{min-height:44px;display:inline-flex;align-items:center}
+  .lightbox img{padding:56px 12px 0;height:calc(100% - 86px)}
+}
+@media(max-width:390px){
+  .site-header{padding:0 14px}
+  .brand{gap:8px}
+  .brand-text{font-size:11px;letter-spacing:.04em}
+  .hero{padding-left:20px;padding-right:20px}
+  .hero h1{font-size:clamp(39px,10vw,48px)}
+  .hero-actions{align-items:flex-start;flex-direction:column;gap:20px}
+  .hero-bottom{left:20px}
+  .gallery-grid{gap:9px}
+  .gallery-item span{font-size:9px}
+  .gallery-item:not(.gallery-wide) span{left:11px;right:9px;bottom:12px;font-size:8px}
+  .feature-copy{padding-left:22px;padding-right:22px}
+}
+/* Remove forced invisible content on slow browsers. Animations stay progressive. */
+.js-motion [data-reveal]{opacity:1;transform:none}
+.js-motion.motion-ready [data-reveal]:not(.in-view){opacity:0;transform:translate3d(0,22px,0)}
+.js-motion.motion-ready [data-reveal].in-view{opacity:1;transform:none}
+.lightbox{margin:auto;overscroll-behavior:contain}
+.lightbox>button{min-width:48px;min-height:48px;z-index:3}
+.lightbox-controls button{min-width:44px;min-height:44px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.js-motion.motion-ready [data-reveal]:not(.in-view){opacity:1!important;transform:none!important}}

@@ -1,0 +1,21 @@
+MARTINS FEST’S — SITE REVISTO (2026-10-19)
+
+1. Extraia o ZIP.
+2. Acesse https://github.com/tucarodrigues42-create/Martins-Fest
+3. Use Add file > Upload files.
+4. Envie TODOS os arquivos deste ZIP para a raiz do repositorio (nao envie o ZIP).
+5. Ao serem perguntados sobre substituicao de arquivos, confirme a atualizacao da versao antiga.
+6. Clique em Commit changes e acompanhe o deploy no painel da Vercel.
+
+Arquivos do site: index.html, style.css, script.js, vercel.json, robots.txt, assets/.
+
+MELHORIAS:
+- Enquadramento de fotos verticais na Hero (desktop).
+- Hero responsiva para celulares pequenos e telas baixas.
+- Menu mobile com fechamento por Escape e clique fora.
+- Ajustes na galeria/lightbox e acessibilidade.
+- Metadados sociais e canonical.
+- Dimensoes das imagens para evitar saltos na pagina.
+- Mantidos logo, 4 fotos reais e o WhatsApp https://w.app/martinsfests.
+
+OBS: revisao de codigo concluida. Verificacao visual completa no navegador requer teste apos deploy.
